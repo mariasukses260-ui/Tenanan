@@ -147,17 +147,13 @@ export default function App() {
   return (
     <>
       <style>{`
-        :root {
-          color-scheme: dark;
-        }
-
+        :root { color-scheme: dark; }
         * { box-sizing: border-box; }
         html, body, #root {
           margin: 0;
           min-height: 100%;
           background: #020617;
         }
-
         body {
           font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
@@ -318,13 +314,7 @@ export default function App() {
             ))}
           </section>
 
-          <main
-            className="glass-panel"
-            style={{
-              borderRadius: 24,
-              padding: '24px 18px',
-            }}
-          >
+          <main className="glass-panel" style={{ borderRadius: 24, padding: '24px 18px' }}>
             {questions.length === 0 ? (
               <div style={{ textAlign: 'center', color: '#cbd5e1', padding: '36px 0' }}>
                 Tidak ada pertanyaan untuk mode ini.
