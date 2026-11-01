@@ -14,7 +14,7 @@ type Role = 'duit semilyar' | 'urip kepenak' | 'Kamulyan jagad';
 const PERSON_FOCUS: Record<Person, string> = {
   Edi: 'iktikad baik & perlindungan penguasa beritikad baik',
   Ridwan: 'beban pembuktian & kekuatan alat bukti',
-  Susanto: 'penguasaan nyata / okupasi fisik sebagai fakta hukum',
+  Susanto: 'penguasaan nyata / pendudukan fisik sebagai fakta hukum',
   Suprapti: 'cacat formil vs cacat materiil & hierarki norma',
   Eka: 'perlindungan pihak ketiga yang beritikad baik',
   Jumiati: 'sistem pendaftaran tanah & kekuatan register negara',
@@ -34,28 +34,28 @@ const clusters: ClusterDef[] = [
     role: 'duit semilyar',
     questions: {
       Edi: [
-        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim menilai iktikad baik pihak yang telah menguasai objek tersebut tanpa menunggu naskah resmi?[...]',
-        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim menimbang perlindungan terhadap pihak yang menguasai dengan iktikad baik meski naskah baru [...]',
+        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim menilai iktikad baik pihak yang telah menguasai objek tersebut tanpa menunggu naskah resmi?[...[...]
+        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim menimbang perlindungan terhadap pihak yang menguasai dengan iktikad baik meski naskah baru [...[...]
       ],
       Ridwan: [
         'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim membebankan pembuktian atas validitas instrumen tersebut kepada pihak yang mengajukannya?',
-        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim menilai kekuatan pembuktian instrumen yang lahir belakangan dibanding fakta penguasaan lama[...]',
+        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim menilai kekuatan pembuktian instrumen yang lahir belakangan dibanding fakta penguasaan lama[...[...]
       ],
       Susanto: [
-        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim menilai fakta penguasaan fisik yang telah berlangsung lama sebagai fakta hukum yang mandiri[...]',
-        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim menimbang okupasi nyata yang telah lama terjadi di hadapan naskah yang baru terbit?',
+        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim menilai fakta penguasaan fisik yang telah berlangsung lama sebagai fakta hukum yang mandiri[...[...]
+        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim menimbang pendudukan nyata yang telah lama terjadi di hadapan naskah yang baru terbit?',
       ],
       Suprapti: [
-        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim membedakan cacat formil penerbitan instrumen dengan cacat materiil yang menyentuh substansi[...]',
-        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim menilai apakah keterlambatan penerbitan merupakan cacat formil semata atau cacat yang memen[...]',
+        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim membedakan cacat formil penerbitan instrumen dengan cacat materiil yang menyentuh substansi[...[...]
+        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim menilai apakah keterlambatan penerbitan merupakan cacat formil semata atau cacat yang memen[...[...]
       ],
       Eka: [
-        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim melindungi pihak ketiga yang telah bertransaksi dengan mengandalkan penguasaan nyata yang t[...]',
-        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim menimbang kepentingan pihak ketiga yang beritikad baik terhadap objek yang sudah lama dikua[...]',
+        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim melindungi pihak ketiga yang telah bertransaksi dengan mengandalkan penguasaan nyata yang t[...[...]
+        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim menimbang kepentingan pihak ketiga yang beritikad baik terhadap objek yang sudah lama dikua[...[...]
       ],
       Jumiati: [
         'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim menilai kekuatan sistem pendaftaran tanah negara terhadap naskah yang lahir belakangan?',
-        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim menimbang data register negara yang sudah ada dibanding instrumen yang baru muncul di luar [...]',
+        'Apabila instrumen tertulis terbit jauh setelah objek dikuasai pihak lain, bagaimana panel hakim menimbang data register negara yang sudah ada dibanding instrumen yang baru muncul di luar [...[...]
       ],
     },
   },
@@ -73,7 +73,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Apakah penguasaan lahan selama beberapa dekade tanpa naskah resmi dapat diakui sebagai fakta hukum penguasaan nyata yang berdiri sendiri di hadapan hukum?',
-        'Apakah penguasaan lahan selama beberapa dekade tanpa naskah resmi dapat dijadikan fakta okupasi yang memiliki nilai hukum mandiri tanpa bergantung pada naskah?',
+        'Apakah penguasaan lahan selama beberapa dekade tanpa naskah resmi dapat dijadikan fakta pendudukan yang memiliki nilai hukum mandiri tanpa bergantung pada naskah?',
       ],
       Suprapti: [
         'Apakah penguasaan lahan selama beberapa dekade tanpa naskah resmi dapat menutup celah cacat formil administrasi yang tidak menyentuh substansi kepemilikan?',
@@ -103,7 +103,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Dapatkah kelalaian menyelesaikan pengurusan tata usaha secara otomatis menghapus nilai hukum dari fakta penguasaan nyata yang telah terbentuk sebelumnya?',
-        'Dapatkah kelalaian menyelesaikan pengurusan tata usaha secara otomatis meniadakan fakta okupasi yang sudah berlangsung lama sebelum kelalaian itu?',
+        'Dapatkah kelalaian menyelesaikan pengurusan tata usaha secara otomatis meniadakan fakta pendudukan yang sudah berlangsung lama sebelum kelalaian itu?',
       ],
       Suprapti: [
         'Dapatkah kelalaian menyelesaikan pengurusan tata usaha secara otomatis digolongkan sebagai cacat formil yang tidak membatalkan substansi keperdataan yang telah ada?',
@@ -129,22 +129,22 @@ const clusters: ClusterDef[] = [
       ],
       Ridwan: [
         'Ketika kedua kubu mengajukan bukti yang saling berlawanan atas objek identik, bagaimana panel hakim menentukan siapa yang memikul beban pembuktian yang lebih berat?',
-        'Ketika kedua kubu mengajukan bukti yang saling berlawanan atas objek identik, bagaimana panel hakim menilai kekuatan relatif alat bukti masing-masing pihak untuk memutus beban pembuktian[...]',
+        'Ketika kedua kubu mengajukan bukti yang saling berlawanan atas objek identik, bagaimana panel hakim menilai kekuatan relatif alat bukti masing-masing pihak untuk memutus beban pembuktian[...][...]
       ],
       Susanto: [
         'Ketika kedua kubu mengajukan bukti yang saling berlawanan atas objek identik, bagaimana panel hakim menilai fakta penguasaan fisik sebagai bukti yang paling konkret dan langsung?',
-        'Ketika kedua kubu mengajukan bukti yang saling berlawanan atas objek identik, bagaimana panel hakim menimbang okupasi nyata di lapangan dibanding bukti dokumen yang saling bertentangan?[...]',
+        'Ketika kedua kubu mengajukan bukti yang saling berlawanan atas objek identik, bagaimana panel hakim menimbang pendudukan nyata di lapangan dibanding bukti dokumen yang saling bertentangan?[...]'[...]
       ],
       Suprapti: [
         'Ketika kedua kubu mengajukan bukti yang saling berlawanan atas objek identik, bagaimana panel hakim membedakan bukti yang cacat formil dengan bukti yang cacat materiil?',
-        'Ketika kedua kubu mengajukan bukti yang saling berlawanan atas objek identik, bagaimana panel hakim menilai hierarki antara bukti yang hanya cacat formil dan bukti yang menyentuh substan[...]',
+        'Ketika kedua kubu mengajukan bukti yang saling berlawanan atas objek identik, bagaimana panel hakim menilai hierarki antara bukti yang hanya cacat formil dan bukti yang menyentuh substan[...][...]
       ],
       Eka: [
         'Ketika kedua kubu mengajukan bukti yang saling berlawanan atas objek identik, bagaimana panel hakim melindungi kepentingan pihak ketiga yang tidak terlibat dalam sengketa tersebut?',
-        'Ketika kedua kubu mengajukan bukti yang saling berlawanan atas objek identik, bagaimana panel hakim menimbang dampak putusan terhadap pihak ketiga yang telah bertransaksi berdasarkan kea[...]',
+        'Ketika kedua kubu mengajukan bukti yang saling berlawanan atas objek identik, bagaimana panel hakim menimbang dampak putusan terhadap pihak ketiga yang telah bertransaksi berdasarkan kea[...][...]
       ],
       Jumiati: [
-        'Ketika kedua kubu mengajukan bukti yang saling berlawanan atas objek identik, bagaimana panel hakim menilai data yang tercatat dalam sistem pendaftaran tanah negara sebagai acuan utama?[...]',
+        'Ketika kedua kubu mengajukan bukti yang saling berlawanan atas objek identik, bagaimana panel hakim menilai data yang tercatat dalam sistem pendaftaran tanah negara sebagai acuan utama?[...]'[...]
         'Ketika kedua kubu mengajukan bukti yang saling berlawanan atas objek identik, bagaimana panel hakim menimbang kekuatan register negara dibanding bukti di luar sistem pendaftaran?',
       ],
     },
@@ -163,7 +163,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Apabila dalil kepemilikan didasarkan pada perbuatan yang tidak tertulis, dapatkah perbuatan itu diakui melalui fakta penguasaan nyata yang mengikutinya?',
-        'Apabila dalil kepemilikan didasarkan pada perbuatan yang tidak tertulis, dapatkah perbuatan itu dibuktikan melalui okupasi fisik yang berlangsung setelahnya?',
+        'Apabila dalil kepemilikan didasarkan pada perbuatan yang tidak tertulis, dapatkah perbuatan itu dibuktikan melalui pendudukan fisik yang berlangsung setelahnya?',
       ],
       Suprapti: [
         'Apabila dalil kepemilikan didasarkan pada perbuatan yang tidak tertulis, dapatkah ketiadaan bentuk tertulis dipandang sebagai cacat formil yang tidak membatalkan substansi peralihan?',
@@ -193,7 +193,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Apakah panel hakim wajib menelusuri fakta penguasaan fisik historis suatu peralihan sebelum menilai naskah yang diterbitkan pada kurun kemudian?',
-        'Apakah panel hakim wajib menelaah okupasi nyata yang menyertai peralihan historis sebelum memberi bobot pada naskah belakangan?',
+        'Apakah panel hakim wajib menelaah pendudukan nyata yang menyertai peralihan historis sebelum memberi bobot pada naskah belakangan?',
       ],
       Suprapti: [
         'Apakah panel hakim wajib menelusuri apakah cacat formil atau materiil yang menyertai peralihan historis sebelum menilai naskah yang diterbitkan kemudian?',
@@ -223,7 +223,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Bagaimana kedudukan kesaksian masyarakat setempat dalam membuktikan fakta penguasaan nyata yang menyertai peralihan lisan di masa lampau?',
-        'Bagaimana posisi keterangan masyarakat setempat dalam menguatkan okupasi fisik yang terjadi setelah peralihan lisan di masa lampau?',
+        'Bagaimana posisi keterangan masyarakat setempat dalam menguatkan pendudukan fisik yang terjadi setelah peralihan lisan di masa lampau?',
       ],
       Suprapti: [
         'Bagaimana kedudukan kesaksian masyarakat setempat dalam menutup cacat formil ketiadaan naskah pada peralihan lisan di masa lampau?',
@@ -253,7 +253,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Apakah ketiadaan sertifikasi atas lahan yang dikuasai selama puluhan tahun menghilangkan nilai hukum dari fakta penguasaan nyata itu sendiri?',
-        'Apakah ketiadaan sertifikasi atas lahan yang dikuasai selama puluhan tahun meniadakan fakta okupasi sebagai fakta hukum yang mandiri?',
+        'Apakah ketiadaan sertifikasi atas lahan yang dikuasai selama puluhan tahun meniadakan fakta pendudukan sebagai fakta hukum yang mandiri?',
       ],
       Suprapti: [
         'Apakah ketiadaan sertifikasi atas lahan yang dikuasai selama puluhan tahun merupakan cacat formil yang tidak menghapus substansi kepemilikan yang sudah terbentuk?',
@@ -283,7 +283,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Bagaimana panel hakim menilai ketegangan antara fakta penguasaan fisik lama sebagai fakta hukum dan naskah resmi yang baru terbit belakangan?',
-        'Bagaimana panel hakim menimbang konflik antara okupasi nyata yang telah lama berlangsung dan naskah yang lahir kemudian?',
+        'Bagaimana panel hakim menimbang konflik antara pendudukan nyata yang telah lama berlangsung dan naskah yang lahir kemudian?',
       ],
       Suprapti: [
         'Bagaimana panel hakim menilai ketegangan antara penguasaan fisik lama dan naskah resmi belakangan dari sudut cacat formil versus materiil?',
@@ -313,7 +313,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Dapatkah rangkaian pembayaran kewajiban atas lahan selama bertahun-tahun memperkuat fakta penguasaan nyata sebagai fakta hukum?',
-        'Dapatkah jejak pembayaran kewajiban atas lahan selama bertahun-tahun menopang dalil okupasi fisik yang telah berlangsung lama?',
+        'Dapatkah jejak pembayaran kewajiban atas lahan selama bertahun-tahun menopang dalil pendudukan fisik yang telah berlangsung lama?',
       ],
       Suprapti: [
         'Dapatkah rangkaian pembayaran kewajiban atas lahan selama bertahun-tahun menutup cacat formil ketiadaan naskah resmi?',
@@ -345,7 +345,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Apakah pencatatan oleh aparatur negara berfungsi melahirkan kedudukan hukum baru, atau sekadar mencatat fakta penguasaan nyata yang sudah berlangsung?',
-        'Apakah pencatatan oleh aparatur negara berfungsi menciptakan hak baru, atau sekadar merekam okupasi fisik yang telah ada sebelumnya?',
+        'Apakah pencatatan oleh aparatur negara berfungsi menciptakan hak baru, atau sekadar merekam pendudukan fisik yang telah ada sebelumnya?',
       ],
       Suprapti: [
         'Apakah pencatatan oleh aparatur negara berfungsi melahirkan kedudukan hukum baru, atau sekadar menutup cacat formil tanpa mengubah substansi hak yang sudah ada?',
@@ -375,7 +375,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Bagaimana panel hakim membedakan cacat yang menyentuh fakta penguasaan nyata dengan cacat yang hanya bersifat prosedural belaka?',
-        'Bagaimana panel hakim memisahkan cacat yang mengganggu okupasi fisik dengan cacat administratif yang tidak meniadakan fakta penguasaan?',
+        'Bagaimana panel hakim memisahkan cacat yang mengganggu pendudukan fisik dengan cacat administratif yang tidak meniadakan fakta penguasaan?',
       ],
       Suprapti: [
         'Bagaimana panel hakim membedakan cacat yang menyentuh isi kedudukan hukum (materiil) dengan cacat yang hanya bersifat formil belaka?',
@@ -405,7 +405,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Apabila regulasi pelaksana bertentangan dengan norma pokok yang mengakui penguasaan nyata, mana yang wajib diprioritaskan oleh panel hakim?',
-        'Apabila regulasi pelaksana bertentangan dengan norma pokok tentang fakta okupasi, mana yang harus diutamakan oleh panel hakim?',
+        'Apabila regulasi pelaksana bertentangan dengan norma pokok tentang fakta pendudukan, mana yang harus diutamakan oleh panel hakim?',
       ],
       Suprapti: [
         'Apabila regulasi pelaksana bertentangan dengan norma pokok yang mengatur hierarki cacat formil dan materiil, mana yang wajib diprioritaskan oleh panel hakim?',
@@ -435,7 +435,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Dalam sengketa lahan, apakah penguasaan aktual atas objek sengketa lebih menentukan ketimbang naskah resmi yang dimiliki salah satu kubu?',
-        'Dalam sengketa lahan, apakah fakta okupasi nyata lebih berbobot ketimbang naskah resmi yang tidak disertai penguasaan?',
+        'Dalam sengketa lahan, apakah fakta pendudukan nyata lebih berbobot ketimbang naskah resmi yang tidak disertai penguasaan?',
       ],
       Suprapti: [
         'Dalam sengketa lahan, apakah keabsahan materiil atas naskah resmi lebih menentukan ketimbang naskah resmi yang mungkin cacat formil?',
@@ -465,7 +465,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Bagaimana sistem hukum menilai fakta penguasaan nyata seseorang yang menguasai lahan meskipun tanpa naskah resmi?',
-        'Bagaimana sistem hukum menimbang okupasi fisik seseorang yang menguasai lahan meski naskah resmi belum ada?',
+        'Bagaimana sistem hukum menimbang pendudukan fisik seseorang yang menguasai lahan meski naskah resmi belum ada?',
       ],
       Suprapti: [
         'Bagaimana sistem hukum menilai apakah ketiadaan naskah resmi merupakan cacat formil atau materiil bagi seseorang yang menguasai lahan?',
@@ -495,7 +495,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Apabila naskah resmi terbit di hadapan pengemban jabatan yang berwenang, dapatkah kekuatan naskah itu digugurkan oleh fakta penguasaan nyata pihak lawan?',
-        'Apabila naskah resmi terbit di hadapan pengemban jabatan yang berwenang, dapatkah okupasi fisik yang telah lama berlangsung mengalahkan naskah tersebut?',
+        'Apabila naskah resmi terbit di hadapan pengemban jabatan yang berwenang, dapatkah pendudukan fisik yang telah lama berlangsung mengalahkan naskah tersebut?',
       ],
       Suprapti: [
         'Apabila naskah resmi terbit di hadapan pengemban jabatan yang berwenang, dapatkah kekuatan naskah itu digugurkan jika ternyata mengandung cacat materiil?',
@@ -525,7 +525,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Seberapa jauh kekuatan formal atas naskah resmi dapat menutup celah yang bersandar pada fakta penguasaan nyata bertahun-tahun?',
-        'Seberapa jauh daya ikat formal naskah resmi dapat meniadakan nilai hukum okupasi fisik yang telah berlangsung lama?',
+        'Seberapa jauh daya ikat formal naskah resmi dapat meniadakan nilai hukum pendudukan fisik yang telah berlangsung lama?',
       ],
       Suprapti: [
         'Seberapa jauh kekuatan formal atas naskah resmi dapat menutup celah yang membedakan cacat formil dengan cacat materiil?',
@@ -555,7 +555,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Bagaimana panel hakim menilai klaim pihak yang baru muncul belakangan dengan membawa naskah, terhadap fakta penguasaan nyata pihak lama?',
-        'Bagaimana panel hakim menimbang tuntutan pihak yang baru membawa naskah terhadap okupasi fisik yang telah berlangsung lama?',
+        'Bagaimana panel hakim menimbang tuntutan pihak yang baru membawa naskah terhadap pendudukan fisik yang telah berlangsung lama?',
       ],
       Suprapti: [
         'Bagaimana panel hakim menilai klaim pihak yang baru muncul belakangan dengan membawa naskah, dari sudut cacat formil versus materiil?',
@@ -585,7 +585,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Apakah kehadiran naskah yang terbit kemudian mampu menggeser fakta penguasaan nyata pihak yang telah menguasai lahan lintas dekade?',
-        'Apakah terbitnya naskah kemudian mampu meniadakan nilai hukum okupasi fisik yang telah berlangsung puluhan tahun?',
+        'Apakah terbitnya naskah kemudian mampu meniadakan nilai hukum pendudukan fisik yang telah berlangsung puluhan tahun?',
       ],
       Suprapti: [
         'Apakah kehadiran naskah yang terbit kemudian mampu menggeser kedudukan materiil pihak yang telah menguasai lahan, atau hanya menutup cacat formil?',
@@ -615,7 +615,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Dalam menilai sengketa, apakah panel hakim boleh mengabaikan fakta penguasaan nyata hanya karena naskah resmi belum lengkap?',
-        'Dalam menilai sengketa, apakah panel hakim boleh menyingkirkan okupasi fisik yang telah berlangsung hanya karena naskah resmi belum lengkap?',
+        'Dalam menilai sengketa, apakah panel hakim boleh menyingkirkan pendudukan fisik yang telah berlangsung hanya karena naskah resmi belum lengkap?',
       ],
       Suprapti: [
         'Dalam menilai sengketa, apakah panel hakim boleh mengabaikan substansi hak hanya karena naskah resmi belum lengkap (cacat formil)?',
@@ -647,7 +647,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Sejauh mana rentang waktu antara lahirnya peristiwa hukum dan penerbitan naskah resmi memengaruhi nilai hukum fakta penguasaan nyata di antaranya?',
-        'Sejauh mana jarak waktu antara peristiwa hukum dan penerbitan naskah memengaruhi bobot okupasi fisik yang terjadi selama tenggang tersebut?',
+        'Sejauh mana jarak waktu antara peristiwa hukum dan penerbitan naskah memengaruhi bobot pendudukan fisik yang terjadi selama tenggang tersebut?',
       ],
       Suprapti: [
         'Sejauh mana rentang waktu antara lahirnya peristiwa hukum dan penerbitan naskah resmi memengaruhi penilaian cacat formil versus materiil?',
@@ -677,7 +677,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Dapatkah itikad baik pihak yang menguasai lahan selama beberapa dekade menjadi landasan untuk mengakui fakta penguasaan nyata sebagai fakta hukum?',
-        'Dapatkah itikad baik pihak yang menguasai lahan selama beberapa dekade dijadikan pijakan untuk menguatkan nilai okupasi fisiknya?',
+        'Dapatkah itikad baik pihak yang menguasai lahan selama beberapa dekade dijadikan pijakan untuk menguatkan nilai pendudukan fisiknya?',
       ],
       Suprapti: [
         'Dapatkah itikad baik pihak yang menguasai lahan selama beberapa dekade menjadi landasan untuk menutup cacat formil yang tidak menyentuh substansi?',
@@ -706,8 +706,8 @@ const clusters: ClusterDef[] = [
         'Pihak mana yang seharusnya menanggung kewajiban membuktikan apabila satu kubu menguasai naskah resmi dan kubu lain mengandalkan penguasaan tanpa naskah?',
       ],
       Susanto: [
-        'Pihak mana yang seharusnya memikul beban untuk menyangkal fakta penguasaan nyata apabila satu kubu menguasai naskah resmi dan kubu lain mengandalkan okupasi?',
-        'Pihak mana yang seharusnya menanggung kewajiban membantah okupasi fisik apabila satu kubu menguasai naskah dan kubu lain mengandalkan penguasaan?',
+        'Pihak mana yang seharusnya memikul beban untuk menyangkal fakta penguasaan nyata apabila satu kubu menguasai naskah resmi dan kubu lain mengandalkan pendudukan?',
+        'Pihak mana yang seharusnya menanggung kewajiban membantah pendudukan fisik apabila satu kubu menguasai naskah dan kubu lain mengandalkan penguasaan?',
       ],
       Suprapti: [
         'Pihak mana yang seharusnya memikul beban untuk membuktikan cacat materiil apabila satu kubu menguasai naskah resmi dan kubu lain mengandalkan penguasaan lama?',
@@ -718,7 +718,7 @@ const clusters: ClusterDef[] = [
         'Pihak mana yang seharusnya menanggung kewajiban menjaga pihak ketiga beritikad baik dalam sengketa antara pemegang naskah dan penguasa nyata?',
       ],
       Jumiati: [
-        'Pihak mana yang seharusnya memikul beban untuk membuktikan ketidaksesuaian dengan sistem pendaftaran tanah negara apabila satu kubu menguasai naskah dan kubu lain mengandalkan penguasaan[...]',
+        'Pihak mana yang seharusnya memikul beban untuk membuktikan ketidaksesuaian dengan sistem pendaftaran tanah negara apabila satu kubu menguasai naskah dan kubu lain mengandalkan penguasaan[...][...]
         'Pihak mana yang seharusnya menanggung kewajiban membuktikan data register negara apabila satu kubu menguasai naskah resmi dan kubu lain mengandalkan penguasaan?',
       ],
     },
@@ -737,7 +737,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Apakah diskrepansi antara peristiwa hukum yang telah terjadi dan naskah yang melengkapinya menciptakan celah bagi pengakuan fakta penguasaan nyata?',
-        'Apakah kesenjangan antara peristiwa hukum dan naskah yang menyusul membuka ruang untuk menguatkan nilai okupasi fisik di tenggang waktu itu?',
+        'Apakah kesenjangan antara peristiwa hukum dan naskah yang menyusul membuka ruang untuk menguatkan nilai pendudukan fisik di tenggang waktu itu?',
       ],
       Suprapti: [
         'Apakah diskrepansi antara peristiwa hukum yang telah terjadi dan naskah yang melengkapinya menciptakan celah cacat formil yang tidak membatalkan substansi?',
@@ -767,7 +767,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Apakah kontribusi yang dilakukan keluarga penguasa lahan selama puluhan tahun membuktikan fakta penguasaan nyata yang sah atas lahan tersebut?',
-        'Apakah sumbangsih yang dilakukan keluarga penguasa lahan selama puluhan tahun menunjukkan okupasi fisik yang memiliki nilai hukum?',
+        'Apakah sumbangsih yang dilakukan keluarga penguasa lahan selama puluhan tahun menunjukkan pendudukan fisik yang memiliki nilai hukum?',
       ],
       Suprapti: [
         'Apakah kontribusi yang dilakukan keluarga penguasa lahan selama puluhan tahun menutup cacat formil ketiadaan naskah resmi?',
@@ -797,7 +797,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Bagaimana panel hakim seharusnya menyikapi kontradiksi antara dalil penggugat yang tidak disertai bukti fisik dan fakta penguasaan nyata tergugat selama puluhan tahun?',
-        'Bagaimana panel hakim seharusnya menanggapi pertentangan antara dalil tanpa bukti fisik dan okupasi fisik yang telah lama berlangsung?',
+        'Bagaimana panel hakim seharusnya menanggapi pertentangan antara dalil tanpa bukti fisik dan pendudukan fisik yang telah lama berlangsung?',
       ],
       Suprapti: [
         'Bagaimana panel hakim seharusnya menyikapi kontradiksi antara dalil penggugat yang tidak disertai bukti fisik dan penguasaan tergugat dari sudut cacat formil versus materiil?',
@@ -827,7 +827,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Apakah keberlanjutan lintas generasi atas lahan dapat menguatkan fakta penguasaan nyata meski naskah resmi belum lengkap?',
-        'Apakah kesinambungan lintas generasi atas lahan dapat memperkuat nilai okupasi fisik meski naskah resmi belum lengkap?',
+        'Apakah kesinambungan lintas generasi atas lahan dapat memperkuat nilai pendudukan fisik meski naskah resmi belum lengkap?',
       ],
       Suprapti: [
         'Apakah keberlanjutan lintas generasi atas lahan dapat menutup cacat formil ketiadaan naskah resmi?',
@@ -857,7 +857,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Bagaimana panel hakim menilai keterlambatan pihak yang baru mengajukan gugatan terhadap fakta penguasaan nyata yang telah berlangsung puluhan tahun?',
-        'Bagaimana panel hakim menimbang kelambanan penggugat dibanding okupasi fisik yang sudah lama terjadi?',
+        'Bagaimana panel hakim menimbang kelambanan penggugat dibanding pendudukan fisik yang sudah lama terjadi?',
       ],
       Suprapti: [
         'Bagaimana panel hakim menilai keterlambatan pihak yang baru mengajukan gugatan dari sudut apakah keterlambatan itu menimbulkan cacat formil atau materiil?',
@@ -887,7 +887,7 @@ const clusters: ClusterDef[] = [
       ],
       Susanto: [
         'Dapatkah penerimaan sosial di lingkungan setempat dijadikan penopang fakta penguasaan nyata atas lahan tanpa naskah lengkap?',
-        'Dapatkah pengakuan sosial di lingkungan setempat dijadikan sandaran okupasi fisik atas lahan tanpa naskah lengkap?',
+        'Dapatkah pengakuan sosial di lingkungan setempat dijadikan sandaran pendudukan fisik atas lahan tanpa naskah lengkap?',
       ],
       Suprapti: [
         'Dapatkah penerimaan sosial di lingkungan setempat dijadikan penopang untuk menutup cacat formil ketiadaan naskah lengkap?',
@@ -916,7 +916,7 @@ const clusters: ClusterDef[] = [
         'Bagaimana panel hakim mempertimbangkan nilai keadilan dalam menentukan siapa yang harus membuktikan lebih berat dalam situasi tersebut?',
       ],
       Susanto: [
-        'Bagaimana panel hakim menimbang rasa keadilan bila satu pihak menguasai nyata dan pihak lain hanya mengandalkan naskah tanpa fakta okupasi?',
+        'Bagaimana panel hakim menimbang rasa keadilan bila satu pihak menguasai nyata dan pihak lain hanya mengandalkan naskah tanpa fakta pendudukan?',
         'Bagaimana panel hakim mempertimbangkan nilai keadilan dengan memberi bobot pada fakta penguasaan fisik dibanding naskah semata?',
       ],
       Suprapti: [
@@ -991,3 +991,4 @@ export function getQuestionsForPerson(person: string): (Question & { person: str
 }
 
 export { clusters, PERSONS, PERSON_FOCUS };
+
