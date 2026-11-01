@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { getQuestionsForPerson } from '@/lib/debate';
-import CountdownTimer from '@/components/CountdownTimer';
 
 const ALL_PERSONS = ['Edi', 'Ridwan', 'Susanto', 'Suprapti', 'Eka', 'Jumiati'];
 type Phase = 'idle' | 'question' | 'waitAnswer' | 'result' | 'done';
@@ -19,7 +18,11 @@ export default function PersonTester() {
 
   const speakQuestion = useCallback((text: string) => {
     try {
-      if (!('speechSynthesis' in window)) return;
+      if (!('speechSynthesis' in window)) {
+        setPhase('waitAnswer');
+        return;
+      }
+
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'id-ID';
       utterance.rate = 1;
@@ -27,6 +30,7 @@ export default function PersonTester() {
       utterance.onstart = () => setPhase('question');
       utterance.onend = () => setPhase('waitAnswer');
       utterance.onerror = () => setTimeout(() => setPhase('waitAnswer'), 400);
+
       window.speechSynthesis.cancel();
       window.speechSynthesis.speak(utterance);
     } catch {
@@ -39,6 +43,7 @@ export default function PersonTester() {
     setCurrentIndex(safeIndex);
     setSelectedAnswer(null);
     setPhase('question');
+
     const q = questions[safeIndex];
     if (q) {
       speakQuestion(q.text);
@@ -47,11 +52,12 @@ export default function PersonTester() {
 
   const submitAnswer = useCallback((answer: number | null) => {
     if (!currentQuestion) return;
+
     const correctAnswer = (currentQuestion.setIndex ?? 0) + 1;
     const isCorrect = answer !== null && answer === correctAnswer;
 
-    setPhase('result');
     setSelectedAnswer(answer);
+    setPhase('result');
 
     if (isCorrect) {
       setCorrectCount((v) => v + 1);
@@ -59,7 +65,6 @@ export default function PersonTester() {
       setWrongCount((v) => v + 1);
     }
 
-    const nextDelay = 1400;
     setTimeout(() => {
       const nextIndex = currentIndex + 1;
       if (nextIndex < questions.length) {
@@ -67,7 +72,7 @@ export default function PersonTester() {
       } else {
         setPhase('done');
       }
-    }, nextDelay);
+    }, 1400);
   }, [currentQuestion, currentIndex, questions.length, goToQuestion]);
 
   const choosePerson = (person: string) => {
@@ -88,7 +93,7 @@ export default function PersonTester() {
         if (q) {
           speakQuestion(q.text);
         }
-      }, 150);
+      }, 120);
     } else {
       setPhase('done');
     }
@@ -140,10 +145,13 @@ export default function PersonTester() {
               )}
 
               {phase === 'waitAnswer' && (
-                <>
-                  <div className="text-xs text-yellow-300 font-semibold">⏱️ Pilih jawaban sekarang…</div>
-                  <CountdownTimer onTimeout={() => submitAnswer(null)} isRunning duration={3} />
-                </>
+                <div className="space-y-3">
+                  <div className="text-xs text-yellow-300 font-semibold">⏳ Tersedia jawaban setelah pertanyaan selesai dibaca.</div>
+                  <div className="flex gap-2">
+                    <Button size="sm" variant="outline" onClick={() => handleAnswerClick(1)}>Jawaban 1</Button>
+                    <Button size="sm" variant="outline" onClick={() => handleAnswerClick(2)}>Jawaban 2</Button>
+                  </div>
+                </div>
               )}
 
               {phase === 'result' && (
@@ -152,13 +160,6 @@ export default function PersonTester() {
                 }`}>
                   {selectedAnswer === ((currentQuestion.setIndex ?? 0) + 1) ? 'Benar' : 'Salah'}
                   {' — Jawaban benar: ' + (((currentQuestion.setIndex ?? 0) + 1))}
-                </div>
-              )}
-
-              {phase === 'waitAnswer' && (
-                <div className="flex gap-2">
-                  <Button size="sm" variant="outline" onClick={() => handleAnswerClick(1)}>Jawaban 1</Button>
-                  <Button size="sm" variant="outline" onClick={() => handleAnswerClick(2)}>Jawaban 2</Button>
                 </div>
               )}
             </div>
