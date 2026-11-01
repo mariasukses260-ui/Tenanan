@@ -3,7 +3,9 @@
     if (!q) return;
     setPhase('playing');
     setCurrentProlog(null);
-    setDuelRound(null);
+    // Mode duel tetap mengikuti alur standar satu pertanyaan aktif:
+    // baca pertanyaan -> tunggu jawaban -> hasil -> lanjut.
+    // Jangan menghapus duelRound di sini agar UI tidak melompat ke mode identify.
     speak(`Dari ${q.role}. ${q.text}`, () => setPhase('waitAnswer'));
   }, [speak]);
 
@@ -20,7 +22,8 @@
     if (duelModeRef.current) {
       setPhase('playing');
       setCurrentProlog(null);
-      setDuelRound(null);
+      // Duel pakai alur single-question, bukan duelIdentify multi-pertanyaan.
+      // Ini menjaga suara, jawaban, dan hasil tetap konsisten dengan mode lain.
       speak(`Dari ${q.role}. ${q.text}`, () => setPhase('waitAnswer'));
       return;
     }
