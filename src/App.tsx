@@ -27,7 +27,7 @@ const MODES: { key: ModeKey; label: string }[] = [
 
 const PERSONS = ['Edi', 'Ridwan', 'Susanto', 'Suprapti', 'Eka', 'Jumiati'];
 
-function flattenModeSets(entries: { person: string; sets: { id: number; role: string; text: string }[][] }[]): FlatQuestion[] {
+function flattenModeSets(entries: Array<{ person: string; sets: Array<Array<{ id: number; role: string; text: string }>> }>): FlatQuestion[] {
   const flat: FlatQuestion[] = [];
 
   entries.forEach((personEntry) => {
@@ -46,9 +46,9 @@ function flattenModeSets(entries: { person: string; sets: { id: number; role: st
 }
 
 function buildQuestionsForMode(mode: ModeKey, person: string): FlatQuestion[] {
-  if (mode === 'sidang') return flattenModeSets(sidangSets);
-  if (mode === 'pendalaman') return flattenModeSets(pendalamanSets);
-  if (mode === 'duel') return flattenModeSets(duelSets);
+  if (mode === 'sidang') return flattenModeSets(sidangSets as any);
+  if (mode === 'pendalaman') return flattenModeSets((pendalamanSets as any) ?? []);
+  if (mode === 'duel') return flattenModeSets(duelSets as any);
 
   return getPersonQuestions(person).map((q) => ({
     id: q.id,
@@ -90,17 +90,27 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (!isAuthenticated) return;
-    if (!questions.length) {
-      setPhase('done');
+    if (!isAuthenticated || !questions.length) {
       return;
     }
 
     if (phase === 'idle' && currentQuestion) {
       setPhase('reading');
-      speak(currentQuestion.text, () => setPhase('answer'));
+      speak(`${currentQuestion.text}`, () => setPhase('answer'));
     }
-  }, [isAuthenticated, questions.length, currentQuestion, phase, speak]);
+  }, [isAuthenticated, currentQuestion, phase, questions.length, speak]);
+
+  const moveToNextQuestion = useCallback(() => {
+    if (currentIndex + 1 < questions.length) {
+      setCurrentIndex((prev) => prev + 1);
+      setSelectedAnswer(null);
+      setResultState(null);
+      setPhase('idle');
+      return;
+    }
+
+    setPhase('done');
+  }, [currentIndex, questions.length]);
 
   const submitAnswer = useCallback(
     (answer: 1 | 2) => {
@@ -108,48 +118,25 @@ export default function App() {
 
       const correctAnswer = currentQuestion.id % 2 === 0 ? 2 : 1;
       const isCorrect = answer === correctAnswer;
-      const nextResult: ResultState = isCorrect ? 'correct' : 'wrong';
 
       setSelectedAnswer(answer);
-      setResultState(nextResult);
+      setResultState(isCorrect ? 'correct' : 'wrong');
       setPhase('result');
 
       if (isCorrect) {
         setCorrectCount((prev) => prev + 1);
         speak(`Jawaban benar. ${currentQuestion.text}`, () => {
-          window.setTimeout(() => {
-            const nextIndex = currentIndex + 1;
-            if (nextIndex < questions.length) {
-              setCurrentIndex(nextIndex);
-              setSelectedAnswer(null);
-              setResultState(null);
-              setPhase('idle');
-            } else {
-              setPhase('done');
-            }
-          }, 1200);
+          window.setTimeout(() => moveToNextQuestion(), 1200);
         });
       } else {
         setWrongCount((prev) => prev + 1);
-        speak(`Jawaban salah. Jawaban yang benar adalah jawaban ${correctAnswer === 1 ? 'satu' : 'dua'}.`, () => {
-          window.setTimeout(() => {
-            const nextIndex = currentIndex + 1;
-            if (nextIndex < questions.length) {
-              setCurrentIndex(nextIndex);
-              setSelectedAnswer(null);
-              setResultState(null);
-              setPhase('idle');
-            } else {
-              setPhase('done');
-            }
-          }, 1400);
+        speak(`Jawaban salah. Jawaban yang benar adalah jawaban ${correctAnswer}.`, () => {
+          window.setTimeout(() => moveToNextQuestion(), 1400);
         });
       }
     },
-    [currentIndex, currentQuestion, phase, questions.length, speak]
+    [currentQuestion, moveToNextQuestion, phase, speak]
   );
-
-  const scoreSummary = `${correctCount} benar / ${wrongCount} salah`;
 
   if (!isAuthenticated) {
     return <LoginGate onSuccess={() => setIsAuthenticated(true)} />;
@@ -200,24 +187,16 @@ export default function App() {
               fontWeight: 700,
             }}
           >
-            {scoreSummary}
+            {correctCount} benar / {wrongCount} salah
           </div>
         </header>
 
-        <section
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            gap: 10,
-            marginBottom: 20,
-          }}
-        >
+        <section style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 10, marginBottom: 20 }}>
           {MODES.map((mode) => (
             <button
               key={mode.key}
               type="button"
-              onClick={() => resetSession(mode.key, mode.key === 'person' ? selectedPerson : selectedPerson)}
+              onClick={() => resetSession(mode.key, selectedPerson)}
               style={{
                 padding: '10px 18px',
                 borderRadius: 999,
@@ -233,15 +212,7 @@ export default function App() {
           ))}
         </section>
 
-        <section
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            gap: 10,
-            marginBottom: 28,
-          }}
-        >
+        <section style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 10, marginBottom: 28 }}>
           {PERSONS.map((person) => (
             <button
               key={person}
@@ -321,7 +292,7 @@ export default function App() {
                 </div>
               </div>
 
-              {phase === 'answer' || phase === 'result' ? (
+              {(phase === 'answer' || phase === 'result') && (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                   <button
                     type="button"
@@ -337,7 +308,6 @@ export default function App() {
                       fontWeight: 700,
                       fontSize: 18,
                       cursor: phase === 'answer' ? 'pointer' : 'default',
-                      opacity: phase === 'answer' ? 1 : 0.9,
                     }}
                   >
                     Jawaban 1
@@ -357,15 +327,14 @@ export default function App() {
                       fontWeight: 700,
                       fontSize: 18,
                       cursor: phase === 'answer' ? 'pointer' : 'default',
-                      opacity: phase === 'answer' ? 1 : 0.9,
                     }}
                   >
                     Jawaban 2
                   </button>
                 </div>
-              ) : null}
+              )}
 
-              {phase === 'result' && resultState ? (
+              {phase === 'result' && resultState && (
                 <div
                   style={{
                     marginTop: 20,
@@ -380,15 +349,14 @@ export default function App() {
                   }}
                 >
                   {resultState === 'correct' ? 'BENAR' : 'SALAH'}
-                  {' • Jawaban Anda: ' + (selectedAnswer ?? 0)}
                 </div>
-              ) : null}
+              )}
             </div>
           ) : (
             <div style={{ textAlign: 'center', padding: '46px 16px' }}>
               <h2 style={{ margin: 0, fontSize: 30 }}>Sesi selesai</h2>
               <p style={{ marginTop: 12, color: '#cbd5e1', fontSize: 20 }}>
-                Skor akhir: {scoreSummary}
+                Skor akhir: {correctCount} benar / {wrongCount} salah
               </p>
             </div>
           )}
