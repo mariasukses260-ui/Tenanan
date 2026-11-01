@@ -19,6 +19,21 @@ export interface FlatQuestion extends Question {
   setIndex: number;
 }
 
+const QUESTION_WORD_REWRITES: Array<[RegExp, string]> = [
+  [/\bHak\b/gi, 'Wewenang'],
+  [/\bHAK\b/g, 'WEWENANG'],
+  [/\bhak\b/g, 'wewenang'],
+  [/\bTanah\b/gi, 'Lahan'],
+  [/\bTANAH\b/g, 'LAHAN'],
+  [/\btanah\b/g, 'lahan'],
+];
+
+export function normalizeQuestionText(text: string): string {
+  return QUESTION_WORD_REWRITES.reduce((result, [pattern, replacement]) => {
+    return result.replace(pattern, replacement);
+  }, text);
+}
+
 export function getQuestionsForPerson(person: string): FlatQuestion[] {
   const personQuestions = duelSets.find((entry) => entry.person === person);
   if (!personQuestions) return [];
@@ -30,6 +45,7 @@ export function getQuestionsForPerson(person: string): FlatQuestion[] {
     set.forEach((question) => {
       flat.push({
         ...question,
+        text: normalizeQuestionText(question.text),
         globalIndex: globalIndex++,
         person,
         setIndex,
@@ -49,6 +65,7 @@ export function getAllQuestions(): FlatQuestion[] {
       set.forEach((question) => {
         flat.push({
           ...question,
+          text: normalizeQuestionText(question.text),
           globalIndex: globalIndex++,
           person: personSet.person,
           setIndex,
