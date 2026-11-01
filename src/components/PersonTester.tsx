@@ -14,6 +14,7 @@ export default function PersonTester() {
   const [phase, setPhase] = useState<Phase>('idle');
   const [correctCount, setCorrectCount] = useState(0);
   const [wrongCount, setWrongCount] = useState(0);
+  const [showAllQuestions, setShowAllQuestions] = useState(false);
 
   const currentQuestion = questions[currentIndex] ?? null;
 
@@ -78,6 +79,7 @@ export default function PersonTester() {
     setSelectedAnswer(null);
     setCorrectCount(0);
     setWrongCount(0);
+    setShowAllQuestions(false);
     setPhase('idle');
 
     if (list.length > 0) {
@@ -127,6 +129,53 @@ export default function PersonTester() {
               Skor: {correctCount} benar / {wrongCount} salah
             </div>
           </div>
+
+          <div className="mb-3 flex justify-end">
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={() => setShowAllQuestions((v) => !v)}
+              className="bg-black/30 border-white/20 text-white"
+            >
+              {showAllQuestions ? 'Sembunyikan semua pertanyaan' : 'Tampilkan semua pertanyaan'}
+            </Button>
+          </div>
+
+          {showAllQuestions && questions.length > 0 && (
+            <div className="mb-4 rounded-lg border border-cyan-500/30 bg-cyan-500/5 p-3">
+              <div className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
+                Daftar semua pertanyaan {selectedPerson}
+              </div>
+              <div className="max-h-72 space-y-2 overflow-y-auto pr-1">
+                {questions.map((q, idx) => {
+                  const answerNo = (q.setIndex ?? 0) + 1;
+                  const isCurrent = idx === currentIndex;
+                  const answered = phase === 'result' && idx === currentIndex && selectedAnswer !== null;
+                  return (
+                    <div
+                      key={`${q.person}-${q.id}-${q.setIndex}-${idx}`}
+                      className={`rounded-md border p-2 text-left ${
+                        isCurrent
+                          ? 'border-cyan-400 bg-cyan-500/10'
+                          : 'border-white/10 bg-white/5'
+                      }`}
+                    >
+                      <div className="mb-1 flex items-center justify-between gap-2 text-[10px] uppercase tracking-wide text-white/70">
+                        <span>#{idx + 1}</span>
+                        <span>Jawaban {answerNo}</span>
+                      </div>
+                      <p className="text-xs text-white/90">{q.text}</p>
+                      {answered && (
+                        <div className={`mt-2 text-[10px] font-semibold ${selectedAnswer === answerNo ? 'text-emerald-300' : 'text-red-300'}`}>
+                          {selectedAnswer === answerNo ? 'Benar' : `Salah · jawaban benar: ${answerNo}`}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
 
           {questions.length > 0 && currentQuestion && !isFinished && (
             <div className="space-y-3">
