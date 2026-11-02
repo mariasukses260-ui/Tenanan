@@ -217,7 +217,7 @@ export default function LoginGate({ onSuccess }: LoginGateProps) {
 
       {/* Overlay */}
       <div className="absolute inset-0 pointer-events-none bg-black/55" />
-      <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(6,182,212,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
+      <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(6,182,212,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.03)_1px,transparent_1px)] bg-[size:[...]
 
       {/* ===== WATERMARK KUNCI EMAS MEWAH + 1 KUNCI BESAR ===== */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-[5]">
@@ -426,9 +426,9 @@ export default function LoginGate({ onSuccess }: LoginGateProps) {
             title="AUTHENTICATION ACCESS"
           >
             <span className="absolute inset-0 bg-red-600 rounded-full blur-xl opacity-80 group-hover:opacity-100 animate-pulse transition-opacity duration-300" />
-            <div className="relative z-10 flex items-center justify-center gap-2.5 px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-full border border-red-400/40 shadow-[0_0_20px_rgba(239,68,68,0.8)]">
+            <div className="relative z-10 flex items-center justify-center gap-2.5 px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-full border border-red-400/40 shadow-[0_0_20px_rgba(239,68,68,0.5)]">
               <svg className="w-7 h-7 fill-current drop-shadow-[0_0_6px_rgba(255,255,255,0.8)]" viewBox="0 0 24 24">
-                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 4-8 4z" />
+                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816.029-6.196-0.488-8.55-4.385-8.816Zm-9.97 3.144 5.2 2.924-5.2 2.93v-5.854Zm-2.29 7.615 7.578-4.267v6.268L7.355 18.9l-.02-5.957Zm11.6-1.186v3.602l-7.14 4.007v-2.592l4.72-2.644-4.72-2.643V9.76l7.14 3.997Z" />
               </svg>
               <span
                 className="font-extrabold text-lg tracking-wider text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.9)] animate-pulse"
@@ -569,7 +569,7 @@ export default function LoginGate({ onSuccess }: LoginGateProps) {
                     onChange={(e) => setCode(e.target.value)}
                     placeholder="Kode Akses"
                     autoFocus
-                    className="w-full px-3 py-2.5 bg-black/85 border border-orange-500/70 rounded-full text-orange-50 placeholder-orange-700/70 focus:outline-none focus:border-orange-400 focus:ring-1 focus:ring-orange-400/70 text-xs tracking-widest text-center shadow-inner"
+                    className="w-full px-3 py-2.5 bg-black/85 border border-orange-500/70 rounded-full text-orange-50 placeholder-orange-700/70 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-400/50"
                   />
 
                   {error && (
@@ -588,7 +588,7 @@ export default function LoginGate({ onSuccess }: LoginGateProps) {
                     </button>
                     <button
                       type="submit"
-                      className="flex-[1.6] py-2 bg-gradient-to-r from-orange-600 via-red-500 to-yellow-500 hover:from-orange-500 hover:via-red-400 hover:to-yellow-400 text-black font-bold rounded-full text-[10px] shadow-[0_0_25px_rgba(249,115,22,0.75)] transition active:scale-95 tracking-wider uppercase"
+                      className="flex-[1.6] py-2 bg-gradient-to-r from-orange-600 via-red-500 to-yellow-500 hover:from-orange-500 hover:via-red-400 hover:to-yellow-400 text-black font-bold rounded-full text-[10px] tracking-[0.2em] shadow-[0_0_20px_rgba(249,115,22,0.6)] transition"
                     >
                       AUTH
                     </button>
